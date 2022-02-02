@@ -21,7 +21,7 @@ const TransactionForm = () => {
           <input type="button" value="Eats" />
         </label>
 
-        <label>Sum
+        <label>Total
           <input type="text" placeholder="Insert sum" />
         </label>
 
