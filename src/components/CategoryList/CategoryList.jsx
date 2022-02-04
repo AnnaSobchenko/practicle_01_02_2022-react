@@ -26,18 +26,19 @@ class CategoryList extends Component {
  }
   
   render() {
-    const { categories = [] } = this.props;
+    const { categoriesList, togleCategories } = this.props;
     return (
       <>
+      <button type="button" onClick={togleCategories}>Back</button>
         <ul>
-          {categories.map((el) => (
+          {categoriesList.map((el) => (
             <li key={el.id}>
-              <p>{el.title}</p>
+              <p onClick={()=>this.handleSubmitNewCategory(el.title)}>{el.title}</p>
               <button>...</button>
-              <div>
+              {/* <div>
                 <button>Delete</button>
                 <button>Edit</button>
-              </div>
+              </div> */}
             </li>
           ))}
         </ul>
