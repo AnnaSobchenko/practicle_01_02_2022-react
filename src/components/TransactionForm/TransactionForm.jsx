@@ -6,7 +6,7 @@ class TransactionForm extends Component {
   state = {
     date: "2022-02-22",
     time: "",
-    category: "eats",
+    category: "eat",
     currency: "UAH",
     comment: "",
     total: "",
@@ -35,16 +35,20 @@ class TransactionForm extends Component {
   };
 
   reset = () => {
-    const resetedState=Object.keys(this.state).reduce((acc, el) => {
+    const resetedState = Object.keys(this.state).reduce((acc, el) => {
       if (el === "categoriesList") return acc;
-      if(el==="category"){acc[el]="Eat";
-      return acc;};
-      if(el==="date"){acc[el]="2022-02-22";
-      return acc;};
+      if (el === "category") {
+        acc[el] = "Eat";
+        return acc;
+      }
+      if (el === "date") {
+        acc[el] = "2022-02-22";
+        return acc;
+      }
       acc[el] = "";
       return acc;
-    },{});
-    this.setState({resetedState})
+    }, {});
+    this.setState( resetedState );
   };
 
   setCategory = (newCategory) => {
@@ -53,7 +57,7 @@ class TransactionForm extends Component {
   };
 
   render() {
-    const { data, time, category, currency, comment, total, categoriesList } =
+    const { data, time, category,total, currency, comment,  categoriesList } =
       this.state;
     const { isOpenCategories, togleCategoryList } = this.props;
     return (
@@ -61,10 +65,10 @@ class TransactionForm extends Component {
         {!isOpenCategories ? (
           <>
             <select name="transType" id="">
-              <option value="incomes">Incomes</option>
-              <option value="costs">Costs</option>
+              <option value="Incomes">Incomes</option>
+              <option value="Costs">Costs</option>
             </select>
-            <form action="" onSubmit={this.handleSubmitTrans}>
+            <form onSubmit={this.handleSubmitTrans}>
               <label>
                 Day
                 <input
@@ -100,7 +104,7 @@ class TransactionForm extends Component {
                 <input
                   name="total"
                   type="text"
-                  placeholder="Insert sum"
+                  placeholder="Enter sum"
                   value={total}
                   onChange={this.handleChange}
                 />

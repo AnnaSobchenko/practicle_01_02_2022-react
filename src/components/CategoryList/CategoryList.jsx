@@ -1,39 +1,39 @@
 import React, { Component } from "react";
-import { nanoid } from 'nanoid'
-
+import { nanoid } from "nanoid";
 
 class CategoryList extends Component {
   state = { inputCategory: "" };
 
- handleInputChange=(e)=>{
-    const {value}=e.target; 
-    this.setState({inputCategory:value})
- };
+  handleInputChange = (e) => {
+    const { value } = e.target;
+    this.setState({ inputCategory: value });
+  };
 
- handleSubmitNewCategory=(e)=>{
-     e.preventDefault();
-     console.log(this.state);
-     const newCategory={
-         title:this.state.inputCategory,
-         id:nanoid(),
-     };
-     this.props.addCategory(newCategory)
-     this.reset();
- };
+  handleSubmitNewCategory = (e) => {
+    e.preventDefault();
+    const newCategory = {
+      title: this.state.inputCategory,
+      id: nanoid(),
+    };
+    this.props.addCategory(newCategory);
+    this.reset();
+  };
 
- reset=()=>{
-     this.setState({inputCategory:""})
- }
-  
+  reset = () => {
+    this.setState({ inputCategory: "" });
+  };
+
   render() {
-    const { categoriesList, togleCategories } = this.props;
+    const { categoriesList, togleCategoryList, setCategory } = this.props;
     return (
       <>
-      <button type="button" onClick={togleCategories}>Back</button>
+        <button type="button" onClick={togleCategoryList}>
+          Back
+        </button>
         <ul>
           {categoriesList.map((el) => (
             <li key={el.id}>
-              <p onClick={()=>this.handleSubmitNewCategory(el.title)}>{el.title}</p>
+              <p onClick={() => setCategory(el.title)}>{el.title}</p>
               <button>...</button>
               {/* <div>
                 <button>Delete</button>
@@ -42,7 +42,7 @@ class CategoryList extends Component {
             </li>
           ))}
         </ul>
-        <form action="" onSubmit={this.handleSubmitNewCategory}>
+        <form onSubmit={this.handleSubmitNewCategory}>
           <input
             type="text"
             placeholder="new category"

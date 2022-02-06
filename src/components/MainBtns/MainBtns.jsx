@@ -3,7 +3,7 @@ function MainBtns({ changePage }) {
     <>
       <button
         onClick={() => {
-          changePage("Incomes");
+          changePage("incomes");
         }}
         type="button"
       >
@@ -11,7 +11,7 @@ function MainBtns({ changePage }) {
       </button>
       <button
         onClick={() => {
-          changePage("Costs");
+          changePage("costs");
         }}
         type="button"
       >

@@ -5,28 +5,40 @@ import TransactionListPage from "./components/TransactionListPage/TransactionLis
 class App extends Component {
   state = {
     activePage: "main", //main||transactionList
-  transactions:[],}
+    transactions: [],
+  };
 
   changePage = (activePage) => this.setState({ activePage });
 
-addTransaction=(newTrans)=>{
- this.setState(({transactions})=>({ transactions:[...transactions, newTrans]  }));
-}
+  addTransaction = (newTrans) => {
+    this.setState(({ transactions }) => ({
+      transactions: [...transactions, newTrans],
+    }));
+  };
 
   render() {
     return (
       <div>
         {this.state.activePage === "main" && (
-          <MainPage changePage={this.changePage} addTransaction={this.addTransaction} />
+          <MainPage
+            changePage={this.changePage}
+            addTransaction={this.addTransaction}
+          />
         )}
-        {this.state.activePage === "Incomes" && (
-          <TransactionListPage changePage={this.changePage} transType={"Incomes"} />
+        {this.state.activePage === "incomes" && (
+          <TransactionListPage
+            changePage={this.changePage}
+            transType={"incomes"}
+          />
         )}
-        {this.state.activePage === "Costs" && (
-          <TransactionListPage changePage={this.changePage} transType={"Costs"} />
-        )}        
+        {this.state.activePage === "costs" && (
+          <TransactionListPage
+            changePage={this.changePage}
+            transType={"costs"}
+          />
+        )}
       </div>
-    )
+    );
   }
 }
 
