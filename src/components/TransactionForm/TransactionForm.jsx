@@ -14,6 +14,7 @@ class TransactionForm extends Component {
       { id: 1, title: "Eat" },
       { id: 2, title: "Drink" },
     ],
+    transType: "costs",
   };
 
   handleChange = (e) => {
@@ -48,7 +49,7 @@ class TransactionForm extends Component {
       acc[el] = "";
       return acc;
     }, {});
-    this.setState( resetedState );
+    this.setState(resetedState);
   };
 
   setCategory = (newCategory) => {
@@ -57,14 +58,14 @@ class TransactionForm extends Component {
   };
 
   render() {
-    const { data, time, category,total, currency, comment,  categoriesList } =
+    const { data, time, category, total, currency, comment, categoriesList } =
       this.state;
     const { isOpenCategories, togleCategoryList } = this.props;
     return (
       <>
         {!isOpenCategories ? (
           <>
-            <select name="transType" id="">
+            <select name="transType" id="" value={this.state.transType}>
               <option value="Incomes">Incomes</option>
               <option value="Costs">Costs</option>
             </select>
