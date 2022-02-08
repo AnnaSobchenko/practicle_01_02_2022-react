@@ -5,32 +5,33 @@ import TransactionListPage from "./components/TransactionListPage/TransactionLis
 class App extends Component {
   state = {
     activePage: "main", //main||transactionList
-    // costs: [],
-    // incomes:[],
-    transactions:[],
+    costs: [],
+    incomes: [],
+    // transactions: [],
   };
 
   changePage = (activePage) => this.setState({ activePage });
 
   addTransaction = (newTrans) => {
-    this.setState(({ transactions }) => ({
-      transactions: [...transactions, newTrans],
+    const transType=newTrans.transType;//costs/incomes
+    this.setState((prevState) => ({
+      [transType]: [...prevState[transType], newTrans],
     }));
   };
 
-componentDidMount(){
-  const transactions=JSON.parse(localStorage.getItem("transactions"))||[];
-  this.setState({transactions});
-}
+  // componentDidMount() {
+  //   const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+  //   this.setState({ transactions });
+  // }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.transactions !== this.state.transactions) {
-      localStorage.setItem(
-        "transactions",
-        JSON.stringify(this.state.transactions)
-      );
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.transactions !== this.state.transactions) {
+  //     localStorage.setItem(
+  //       "transactions",
+  //       JSON.stringify(this.state.transactions)
+  //     );
+  //   }
+  // }
 
   render() {
     return (
@@ -45,14 +46,14 @@ componentDidMount(){
           <TransactionListPage
             changePage={this.changePage}
             transType={"incomes"}
-            transactions={this.state.transactions}
+            transactions={this.state.incomes}
           />
         )}
         {this.state.activePage === "costs" && (
           <TransactionListPage
             changePage={this.changePage}
             transType={"costs"}
-            transactions={this.state.transactions}
+            transactions={this.state.costs}
           />
         )}
       </div>
