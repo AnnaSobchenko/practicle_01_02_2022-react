@@ -1,14 +1,28 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3004";
+const baseUrl = "http://localhost:3004/";
 
-const postTransaction = ({ transType, transaction }) => {
+export const postTransaction = ({ transType, transaction }) => {
   return axios
-    .post(baseUrl + "/" + transType, transaction)
+    .post(baseUrl + transType, transaction)
     .then((res) => res.data)
     .catch((err) => {
       throw err;
     });
 };
 
-export default postTransaction;
+export const getTransactions = (transType) => {
+  return axios
+    .get(baseUrl + transType)
+    .then((res) => res.data)
+    .catch((err) => {
+      throw err;
+    });
+};
+
+export const removeTransactionApi = ({id, transType}) => {
+  return axios
+    .delete(baseUrl + transType + "/" + id)
+    .then((res) => res.data)
+    .catch((err) => {throw err});
+};

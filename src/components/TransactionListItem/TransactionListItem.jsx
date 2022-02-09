@@ -7,8 +7,9 @@ class TransactionListItem extends Component {
 
   switchMenu = () =>
     this.setState((prevState) => ({ isOpenMenu: !prevState.isOpenMenu }));
+
   render() {
-    const { comment, currency, date, time, total } = this.props;
+    const { comment, currency, date, time, total, delTransaction, id, transType } = this.props;
 
     return (
       <li>
@@ -23,8 +24,12 @@ class TransactionListItem extends Component {
         </button>
         {this.state.isOpenMenu && (
           <div>
-            <button>Delete</button>
-            <button>Edit</button>
+            <button type="button" onClick={()=>delTransaction({id,transType})}>
+              Delete
+            </button>
+            <button type="button" onClick={null}>
+              Edit
+            </button>
           </div>
         )}
       </li>

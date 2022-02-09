@@ -8,26 +8,6 @@
       "comment": "",
       "total": "",
       "transType": "costs",
-      "id": "WpLaYMHZ98qAWXRV4WhKy"
-    },
-    {
-      "date": "2022-02-22",
-      "time": "",
-      "category": "eat",
-      "currency": "UAH",
-      "comment": "",
-      "total": "",
-      "transType": "costs",
-      "id": "wzi4nJ7O-XSuLR5i2bkxw"
-    },
-    {
-      "date": "2022-02-22",
-      "time": "",
-      "category": "eat",
-      "currency": "UAH",
-      "comment": "",
-      "total": "",
-      "transType": "costs",
       "id": "LVlS2sgtSRhCw6Hf4EheS"
     },
     {
@@ -79,26 +59,6 @@
       "total": "",
       "transType": "costs",
       "id": "6KjEtTvAuWAtHwD3h1g1W"
-    },
-    {
-      "date": "2022-02-22",
-      "time": "",
-      "category": "eat",
-      "currency": "UAH",
-      "comment": "",
-      "total": "",
-      "transType": "costs",
-      "id": "CvuVJ4kqxxfMpcWJagDzL"
-    },
-    {
-      "date": "2022-02-11",
-      "time": "15:59",
-      "category": "eat",
-      "currency": "UAH",
-      "comment": "",
-      "total": "41564",
-      "transType": "costs",
-      "id": "pGHkRWmEBvr9kUedvP45Y"
     }
   ],
   "incomes": []

@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { Component } from "react";
-import postTransaction from "../../api";
+import {postTransaction} from "../../api";
 import CategoryList from "../CategoryList/CategoryList";
 
 class TransactionForm extends Component {
@@ -68,7 +68,7 @@ class TransactionForm extends Component {
       <>
         {!isOpenCategories ? (
           <>
-            <select name="transType" id="" value={this.state.transType}>
+            <select name="transType" onChange={this.handleChange} value={this.state.transType}>
               <option value="incomes">Incomes</option>
               <option value="costs">Costs</option>
             </select>
