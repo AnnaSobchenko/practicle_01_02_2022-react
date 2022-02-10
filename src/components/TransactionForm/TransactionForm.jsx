@@ -127,7 +127,7 @@ const TransactionForm = ({
                 onChange={handleChangeForm}
               />
             </label>
-            <button className="Submit" type="submit">Submit</button>
+            <button className="submit" type="submit">Submit</button>
           </form>
         </>
       ) : (
