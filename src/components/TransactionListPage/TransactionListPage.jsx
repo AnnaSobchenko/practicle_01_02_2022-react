@@ -1,10 +1,22 @@
+import { useState } from "react";
+import TransactionForm from "../TransactionForm/TransactionForm";
 import TransactionList from "../TransactionList/TransactionList";
 
-const TransactionListPage = ({ changePage, transType, transactions, delTransaction }) => {
+const TransactionListPage = ({ changePage, transType }) => {
+  const [isEdit, setIsEdit] = useState(false);
+
+  const [editingTransaction, setEditTransaction] = useState( null );
+
+  const switchEditForm = (transaction) => {
+    setIsEdit((prev) => !prev);
+    setEditTransaction(transaction)
+  };
+
   return (
     <>
       <h1>TransactionListPage</h1>
-      <TransactionList transactions={transactions} delTransaction={delTransaction}/>
+      {isEdit && <TransactionForm editingTransaction={editingTransaction} />}
+      <TransactionList transType={transType} switchEditForm={switchEditForm} />
       <button
         onClick={() => {
           changePage("main");

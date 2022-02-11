@@ -87,3 +87,12 @@ select{
   font-weight: 500;
   cursor: context-menu;
 }
+
+p{
+  background-color: #fff;
+  cursor: pointer;
+  text-align: center;
+  color: rgb(53, 39, 15);
+  border-radius: 5px;
+  border: 1px solid orange;
+}
