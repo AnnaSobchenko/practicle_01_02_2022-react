@@ -34,7 +34,7 @@ form {
   
 }
 
-button {
+button  {
   min-width: 40%;
   border: 2px solid orange;
   cursor: pointer;
@@ -49,7 +49,7 @@ button:hover, button:focus{
   color: #fff;
 }
 
-.submit {
+.submit{
   /* grid-row-start: 4;
   grid-row-end: 5; */
   font-weight: 500;
@@ -88,7 +88,9 @@ select{
   cursor: context-menu;
 }
 
-p{
+p, .link{
+  text-decoration: none;
+  min-width: 120px;
   background-color: #fff;
   cursor: pointer;
   text-align: center;

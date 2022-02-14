@@ -25,6 +25,14 @@ const TransactionsProvider = ({ children }) => {
     });
   };
 
+const editTransaction=(transaction)=>{
+const transType=transaction.transType;
+transType === "costs" && setCosts((prevCosts) =>prevCosts.map((el)=>el.id===transaction.id?transaction:el ) );
+
+transType === "incomes" &&
+  setIncomes((prevIncomes) => prevIncomes.map((el)=>el.id===transaction.id?transaction:el ));
+}
+
   useEffect(() => {
     getTransactions("costs")
       .then((costs) => setCosts(costs))
@@ -34,9 +42,11 @@ const TransactionsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   }, []);
 
+
+
   return (
     <TransactionsContext.Provider
-      value={{ delTransaction, costs, incomes, addTransaction }}
+      value={{ delTransaction, costs, incomes, addTransaction,editTransaction }}
     >
       {children}
     </TransactionsContext.Provider>

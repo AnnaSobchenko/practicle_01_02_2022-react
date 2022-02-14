@@ -1,22 +1,19 @@
-import { useState } from "react";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import MainPage from "./components/MainPage/MainPage";
 import TransactionListPage from "./components/TransactionListPage/TransactionListPage";
 
 const App = () => {
-  const [activePage, setActivePage] = useState("main");
-
-  const changePage = (activePage) => setActivePage(activePage);
-
   return (
     <div className="App">
-      {activePage === "main" && <MainPage changePage={changePage} />}
-      {activePage === "incomes" && (
-        <TransactionListPage changePage={changePage} transType={"incomes"} />
-      )}
-      {activePage === "costs" && (
-        <TransactionListPage changePage={changePage} transType={"costs"} />
-      )}
+      <Switch>
+        <Route path="/transactions/:transType">
+          <TransactionListPage />
+        </Route>
+        <Route path="/">
+          <MainPage />
+        </Route>
+      </Switch>
     </div>
   );
 };

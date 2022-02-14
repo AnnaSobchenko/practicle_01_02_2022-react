@@ -2,85 +2,14 @@
   "costs": [
     {
       "date": "2022-02-22",
-      "time": "",
+      "time": "09:15",
       "category": "eat",
       "currency": "UAH",
-      "comment": "",
-      "total": "",
+      "comment": "treww",
+      "total": "4454",
       "transType": "costs",
-      "id": "LVlS2sgtSRhCw6Hf4EheS"
-    },
-    {
-      "date": "2022-02-22",
-      "time": "",
-      "category": "eat",
-      "currency": "UAH",
-      "comment": "",
-      "total": "",
-      "transType": "costs",
-      "id": "RnW1rtKK-pOcd16nY_Ogp"
-    },
-    {
-      "date": "2022-02-22",
-      "time": "",
-      "category": "eat",
-      "currency": "UAH",
-      "comment": "",
-      "total": "",
-      "transType": "costs",
-      "id": "5VCLar5JX-LIkbex6jxIY"
-    },
-    {
-      "date": "2022-02-22",
-      "time": "",
-      "category": "eat",
-      "currency": "UAH",
-      "comment": "",
-      "total": "",
-      "transType": "costs",
-      "id": "2-DaLV96f9kC_1uGbLmBX"
-    },
-    {
-      "date": "2022-02-22",
-      "time": "",
-      "category": "eat",
-      "currency": "UAH",
-      "comment": "",
-      "total": "",
-      "transType": "costs",
-      "id": "Gc_deT0hzhR8IgEjok9D2"
+      "id": "R7Mixj4"
     }
   ],
-  "incomes": [
-    {
-      "date": "2022-02-22",
-      "time": "",
-      "category": "eat",
-      "currency": "UAH",
-      "comment": "",
-      "total": "",
-      "transType": "incomes",
-      "id": "W4xYrPfdoJXTUM-Yup9dU"
-    },
-    {
-      "date": "2022-02-22",
-      "time": "",
-      "category": "eat",
-      "currency": "UAH",
-      "comment": "",
-      "total": "",
-      "transType": "incomes",
-      "id": "qPPz6hMwWyvxN6eA0C9lY"
-    },
-    {
-      "date": "2022-02-22",
-      "time": "",
-      "category": "eat",
-      "currency": "UAH",
-      "comment": "fghjkjhgfdfg",
-      "total": "123",
-      "transType": "incomes",
-      "id": "WU67XFU"
-    }
-  ]
+  "incomes": []
 }
