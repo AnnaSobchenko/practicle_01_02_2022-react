@@ -12,10 +12,15 @@ const TransactionListItem = ({ transaction,switchEditForm }) => {
 
   return (
     <li>
-      <p>{date}</p>
-      <p>{time}</p>
+      <span>date</span>
+      <p> {date}</p>
+      <span> time</span>
+      <p> {time}</p>
+      <span>total</span>
       <p>{total}</p>
+      <span>currency</span>
       <p>{currency}</p>
+      <span>comment</span>
       <p>{comment}</p>
 
       <button onClick={switchMenu} type="button">
