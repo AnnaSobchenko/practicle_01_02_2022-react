@@ -8,7 +8,7 @@ const TransactionListItem = ({ transaction,switchEditForm }) => {
 
   const switchMenu = () => setIsOpenMenu((prevIsOpenMenu) => !prevIsOpenMenu);
 
-  const { comment, currency, date, time, total, id, transType } = transaction;
+  const { comment, currency, date, time, total, id, transType, category } = transaction;
 
   return (
     <li>
@@ -18,6 +18,8 @@ const TransactionListItem = ({ transaction,switchEditForm }) => {
       <p> {time}</p>
       <span>total</span>
       <p>{total}</p>
+      <span>category</span>
+      <p>{category}</p>
       <span>currency</span>
       <p>{currency}</p>
       <span>comment</span>

@@ -24,12 +24,12 @@ const TransactionForm = ({
   togleCategoryList,
   isOpenCategories,
   editingTransaction,
+  setIsEdit,
 }) => {
-  const history=useHistory();
+  const history = useHistory();
 
-  const match=useRouteMatch();
-// console.log(editingTransaction);
-  const { addTransaction,editTransaction } = useTransactionsContext();
+  const match = useRouteMatch();
+  const { addTransaction, editTransaction } = useTransactionsContext();
   const [form, setForm] = useState(() =>
     editingTransaction ? editingTransaction : initialForm
   );
@@ -41,7 +41,11 @@ const TransactionForm = ({
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const openCategoryList=()=>{history.push("/categories-list")}
+  const openCategoryList = () => {
+    history.push(
+      match.url==="/" ? "/categories-list" : match.url + "/categories-list"
+    );
+  };
 
   const handleChangeTransType = (e) => {
     const { value } = e.target;
@@ -55,8 +59,12 @@ const TransactionForm = ({
   const handleSubmitTrans = (e) => {
     e.preventDefault();
     if (editingTransaction) {
-      editTransactionApi({ transType, transaction: form }).then(res=>editTransaction(res));
-    
+      console.log(form);
+      editTransactionApi({ transType, transaction: form }).then((res) => {
+        editTransaction(res);
+
+        setIsEdit(false);
+      });
     } else {
       postTransaction({ transType, transaction: { ...form, transType } }).then(
         (data) => addTransaction(data)
@@ -67,13 +75,14 @@ const TransactionForm = ({
 
   const setCategory = (newCategory) => {
     setForm((prevForm) => ({ ...prevForm, category: newCategory }));
-    togleCategoryList();
+    history.goBack();
   };
 
   const { date, time, category, total, currency, comment } = form;
 
   return (
     <Switch>
+      {console.log(match.path + "/categories-list")}
       <Route path={match.path} exact>
         <select
           name="transType"
@@ -149,7 +158,14 @@ const TransactionForm = ({
           </button>
         </form>
       </Route>
-      <Route path={match.path+"/categories-list"}>
+
+      <Route
+        path={
+          match.path === "/"
+            ? "/categories-list"
+            : match.path + "/categories-list"
+        }
+      >
         <CategoryList
           categoriesList={categoriesList}
           addCategory={addCategory}
