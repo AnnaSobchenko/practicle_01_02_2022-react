@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTransactionsContext } from "../../context/TransactionsProvider/TransactionsProvider";
+import { useTransactionsContext } from "../../context/TransactionsProvider";
 
 const TransactionListItem = ({ transaction,switchEditForm }) => {
   const { delTransaction } = useTransactionsContext();

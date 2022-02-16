@@ -22,5 +22,24 @@
       "transType": "incomes",
       "id": 1
     }
+  ],
+  "incomesCat": [],
+  "costsCat": [
+    {
+      "title": "cats",
+      "id": 2
+    },
+    {
+      "title": "eat",
+      "id": 3
+    },
+    {
+      "title": "drink",
+      "id": 4
+    },
+    {
+      "title": "cats",
+      "id": 5
+    }
   ]
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { editTransactionApi, postTransaction } from "../../api";
 import CategoryList from "../CategoryList/CategoryList";
-import { useTransactionsContext } from "../../context/TransactionsProvider/TransactionsProvider";
+import { useTransactionsContext } from "../../context/TransactionsProvider";
 import { Route, Switch } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useRouteMatch } from "react-router-dom";
@@ -14,11 +14,6 @@ const initialForm = {
   comment: "",
   total: "",
 };
-
-const initialCategoriesList = [
-  { id: 1, title: "Eat" },
-  { id: 2, title: "Drink" },
-];
 
 const TransactionForm = ({
   togleCategoryList,
@@ -33,7 +28,6 @@ const TransactionForm = ({
   const [form, setForm] = useState(() =>
     editingTransaction ? editingTransaction : initialForm
   );
-  const [categoriesList, setCategoriesList] = useState(initialCategoriesList);
   const [transType, setTransType] = useState("costs");
 
   const handleChangeForm = (e) => {
@@ -43,7 +37,7 @@ const TransactionForm = ({
 
   const openCategoryList = () => {
     history.push(
-      match.url==="/" ? "/categories-list" : match.url + "/categories-list"
+      match.url === "/" ? "/categories-list" : match.url + "/categories-list"
     );
   };
 
@@ -52,9 +46,9 @@ const TransactionForm = ({
     setTransType(value);
   };
 
-  const addCategory = (newCategory) => {
-    setCategoriesList((prevCategoryList) => [...prevCategoryList, newCategory]);
-  };
+  // const addCategory = (newCategory) => {
+  //   setCategoriesList((prevCategoryList) => [...prevCategoryList, newCategory]);
+  // };
 
   const handleSubmitTrans = (e) => {
     e.preventDefault();
@@ -167,8 +161,7 @@ const TransactionForm = ({
         }
       >
         <CategoryList
-          categoriesList={categoriesList}
-          addCategory={addCategory}
+          transType={transType}
           togleCategoryList={togleCategoryList}
           setCategory={setCategory}
         />
