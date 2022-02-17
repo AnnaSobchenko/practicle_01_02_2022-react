@@ -1,8 +1,10 @@
-import { useTransactionsContext } from "../../context/TransactionsProvider";
+import { connect } from "react-redux";
 import TransactionListItem from "../TransactionListItem/TransactionListItem";
 
-const TransactionList = ({ transType, switchEditForm }) => {
-  const { [transType]: transactions } = useTransactionsContext();
+const TransactionList = ({ transType, switchEditForm,transactionsProps }) => {
+  
+  const transactions=transactionsProps[transType]
+
   return (
     <ul>
       {transactions.map((transaction) => (
@@ -16,4 +18,12 @@ const TransactionList = ({ transType, switchEditForm }) => {
   );
 };
 
-export default TransactionList;
+const mapStateToProps=(state)=>{
+return{
+  transactionsProps:state.transactions
+}
+}
+
+export default connect(mapStateToProps)( TransactionList);
+
+// const mapDispatchToProps = {}

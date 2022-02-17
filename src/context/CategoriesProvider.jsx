@@ -14,10 +14,14 @@ function CategoriesProvider({ children }) {
     transType === "costs" && setCostsCat((prev) => [...prev, newCategory]);
   };
 
-  useEffect(()=>{
-    getCategories("incomes").then((data)=>setIcomesCat(data)).catch(err=>console.log(err));
-    getCategories("costs").then((data)=>setCostsCat(data)).catch(err=>console.log(err));
-  },[])
+  useEffect(() => {
+    getCategories("incomes")
+      .then((data) => setIcomesCat(data))
+      .catch((err) => console.log(err));
+    getCategories("costs")
+      .then((data) => setCostsCat(data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <CategoriesContext.Provider value={{ incomesCat, costsCat, addCategory }}>

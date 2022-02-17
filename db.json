@@ -9,6 +9,16 @@
       "total": "123",
       "transType": "costs",
       "id": 1
+    },
+    {
+      "date": "2022-02-22",
+      "time": "20:24",
+      "category": "eat",
+      "currency": "UAH",
+      "comment": "sdfghjkl",
+      "total": "",
+      "transType": "costs",
+      "id": 2
     }
   ],
   "incomes": [
