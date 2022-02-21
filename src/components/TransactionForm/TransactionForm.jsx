@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import {
   addCosts,
   addIncomes,
-} from "../../redux/transactions/transactionsActions";
+} from "../../redux/transactions/transactionsOperations";
 
 const initialForm = {
   date: "2022-02-22",
@@ -23,9 +23,7 @@ const initialForm = {
 const TransactionForm = ({
   togleCategoryList,
   editingTransaction,
-  setIsEdit,
-  addIncomesProps,
-  addCostsProps,
+  setIsEdit, 
 }) => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -62,23 +60,8 @@ const TransactionForm = ({
 
         setIsEdit(false);
       });
-    } else {
-      postTransaction({ transType, transaction: { ...form, transType } })
-        .then(
-          (data) => {
-            transType === "costs" && dispatch(addCosts(data));
-            transType === "incomes" && dispatch(addIncomes(data));
-          }
-          // {
-          //   if (transType==="costs"){
-          //     addCostsProps(data)
-          //   }
-          //   if (transType==="incomes"){
-          //     addIncomesProps(data);
-          //   }
-          // }
-        )
-        .catch((err) => console.log(err));
+    } else {transType === "costs" && dispatch(addCosts(form));
+            transType === "incomes" && dispatch(addIncomes(form));      
     }
     setForm(initialForm);
   };
