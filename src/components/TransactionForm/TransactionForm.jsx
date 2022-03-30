@@ -11,7 +11,6 @@ import {
 } from "../../redux/transactions/transactionsOperations";
 
 import SelectTranstype from "../SelectTranstype/SelectTranstype";
-import { FormStyled } from "../Form/Form.styled";
 import { transactionFormOptions } from "../../assets/options/transactionFormOptions";
 import Form from "../Form/Form";
 import { getTransactions } from "../../redux/transactions/transactionSelectors";

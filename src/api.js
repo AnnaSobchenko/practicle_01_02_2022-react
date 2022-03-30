@@ -2,7 +2,7 @@ import axios from "axios";
 
 // const baseUrl = "http://localhost:3004/";
 
-const baseUrl = "https://wallet-bc13-2022-default-rtdb.firebaseio.com/";
+const baseUrl = "https://wallet-bc13-2022-default-rtdb.firebaseio.com";
 
 export const postTransaction = ({ transType, transaction }) => {
   return axios

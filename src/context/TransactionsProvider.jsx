@@ -8,14 +8,6 @@ const TransactionsProvider = ({ children }) => {
   const [costs, setCosts] = useState([]);
   const [incomes, setIncomes] = useState([]);
 
-  // const addTransaction = (newTrans) => {
-  //   const transType = newTrans.transType;
-  //   transType === "costs" && setCosts((prevCosts) => [...prevCosts, newTrans]);
-
-  //   transType === "incomes" &&
-  //     setIncomes((prevIncomes) => [...prevIncomes, newTrans]);
-  // };
-
   const delTransaction = ({ id, transType }) => {
     removeTransactionApi({ id, transType }).then((res) => {
       transType === "costs" &&

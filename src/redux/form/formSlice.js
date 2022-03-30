@@ -9,7 +9,7 @@ const formSlice = createSlice({
     },
     changeInput(state, { payload }) {
       return { ...state, [payload.name]: payload.value };
-    //    state[payload.name]= payload.value; 
+      //    state[payload.name]= payload.value;
     },
   },
 });

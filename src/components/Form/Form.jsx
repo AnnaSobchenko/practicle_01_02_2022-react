@@ -1,6 +1,6 @@
 import { FormStyled } from "./Form.styled";
 import { FormControl, InputGroup, Button } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeInput, setInitialState } from "../../redux/form/formSlice";
 import { getFormValue } from "../../redux/form/formSelectors";

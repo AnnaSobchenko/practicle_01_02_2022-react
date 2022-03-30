@@ -43,7 +43,7 @@ export const getTransactions = createAsyncThunk(
   "transaction/getTransactions",
   async (_, thunkApi) => {
     try {
-      const transactions = await getTransactionsApi();      
+      const transactions = await getTransactionsApi();
       return {
         costs: transactions?.costs
           ? transformGetTransactions(transactions.costs)
@@ -78,7 +78,7 @@ export const editTransaction = createAsyncThunk(
         transType,
         transaction,
       });
-      return {transType, transaction: editedTransaction};
+      return { transType, transaction: editedTransaction };
     } catch (err) {
       return thunkApi.rejectWithValue(err.message);
     }

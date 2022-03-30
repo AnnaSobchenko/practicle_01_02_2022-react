@@ -15,12 +15,12 @@ function CategoriesProvider({ children }) {
   };
 
   useEffect(() => {
-    getCategories("incomes")
-      .then((data) => setIcomesCat(data))
-      .catch((err) => console.log(err));
-    getCategories("costs")
-      .then((data) => setCostsCat(data))
-      .catch((err) => console.log(err));
+    // getCategories("incomes")
+    //   .then((data) => setIcomesCat(data))
+    //   .catch((err) => console.log(err));
+    // getCategories("costs")
+    //   .then((data) => setCostsCat(data))
+    //   .catch((err) => console.log(err));
   }, []);
 
   return (
