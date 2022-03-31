@@ -1,5 +1,7 @@
-import { Form } from "react-bootstrap";
+import Form from "../components/Form/Form";
 import { registerFormOptions } from "../assets/options/registerFormOptions";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../redux/auth/authOperations";
 
 const initialForm = {
   email: "",
@@ -8,13 +10,17 @@ const initialForm = {
 };
 
 const RegisterPage = () => {
-    console.log("RegisterPage"
-    );
+  console.log("RegisterPage");
+  const dispatch = useDispatch();
+
+  const cbOnSubmit = ({ email, password }) =>
+    dispatch(registerUser({ email, password }));
+
   return (
     <Form
       options={registerFormOptions}
-      cbOnSubmit={null}
-      initialFormValue={initialForm}      
+      cbOnSubmit={cbOnSubmit}
+      initialFormValue={initialForm}
     />
   );
 };

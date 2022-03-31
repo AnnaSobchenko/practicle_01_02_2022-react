@@ -1,16 +1,18 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import MainPage from "./components/MainPage/MainPage";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import PublicRoute from "./components/PublicRoute/PublicRoute";
 import TransactionListPage from "./components/TransactionListPage/TransactionListPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import { getIsAuth } from "./redux/auth/authSelectors";
-import { getTransactions } from "./redux/transactions/transactionsOperations";
+// import { getTransactions } from "./redux/transactions/transactionsOperations";
 
 const App = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const isAuth = useSelector(getIsAuth);
 
   // useEffect(() => {
@@ -23,27 +25,20 @@ const App = () => {
     <Container>
       <Row className="justify-content-md-center">
         <Col md={10}>
-          {isAuth ? (
-            <Switch>
-              <Route path="/transactions/:transType">
-                <TransactionListPage />
-              </Route>
-              <Route path="/">
-                <MainPage />
-              </Route>
-              <Redirect to="/" />
-            </Switch>
-          ) : (
-            <Switch>
-              <Route path="/register">
-                <RegisterPage />
-              </Route>
-              <Route path="/login">
-                <LoginPage />
-              </Route>
-              <Redirect to="/login" />
-            </Switch>
-          )}
+          <Switch>
+            <PublicRoute path="/register" isRestricted>
+              <RegisterPage />
+            </PublicRoute>
+            <PublicRoute path="/login" isRestricted>
+              <LoginPage />
+            </PublicRoute>
+            <PrivateRoute path="/transactions/:transType">
+              <TransactionListPage />
+            </PrivateRoute>
+            <PrivateRoute path="/">
+              <MainPage />
+            </PrivateRoute>
+          </Switch>
         </Col>
       </Row>
     </Container>

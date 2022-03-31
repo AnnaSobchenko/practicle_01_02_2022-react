@@ -9,4 +9,9 @@ export const registerFormOptions=[{
     name:"password",
     type: "text",
     placeholder:"Enter your password",
+},{
+    title:"confirm",
+    name:"confirm",
+    type: "text",
+    placeholder:"Enter your password",
 },]

@@ -1,10 +1,10 @@
-import { Form } from "react-bootstrap";
+import Form from "../components/Form/Form";
 import { loginFormOptions } from "../assets/options/loginFormOptions";
 
 const initialForm = {
-    email: "",
-    password: "",
-  };
+  email: "",
+  password: "",
+};
 
 const LoginPage = () => {
   console.log("LoginPage");
@@ -12,7 +12,7 @@ const LoginPage = () => {
     <Form
       options={loginFormOptions}
       cbOnSubmit={null}
-      initialFormValue={initialForm}      
+      initialFormValue={initialForm}
     />
   );
 };

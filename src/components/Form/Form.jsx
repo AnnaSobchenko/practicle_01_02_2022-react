@@ -14,7 +14,6 @@ const Form = ({ options, cbOnSubmit, initialFormValue, cbOnClick = null }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     cbOnSubmit(form);
-    
   };
 
   const handleChange = (e) => {

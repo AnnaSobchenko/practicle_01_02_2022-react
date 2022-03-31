@@ -61,7 +61,7 @@ const TransactionForm = ({
   };
 
   const setCategory = (newCategory) => {
-    dispatch(changeInput({ name:"category", value:newCategory }));
+    dispatch(changeInput({ name: "category", value: newCategory }));
     // setForm((prevForm) => ({ ...prevForm, category: newCategory }));
     history.goBack();
   };
